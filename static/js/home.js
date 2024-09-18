@@ -2,7 +2,33 @@
 document.addEventListener('DOMContentLoaded', () => {
     const englishText = document.getElementById('english-text');
     const form = document.getElementById('evaluation-form');
+    const segments = [
+        { id: "segment-1", spanish: "Aquí está el texto en español.", english: "Here is the English text." },
+        { id: "segment-2", spanish: "Otro texto en español.", english: "Another English text." },
+    ];
+    let currentSegment = 0; 
     let selectedText = '';
+
+    function displaySegment() {
+        document.getElementById("spanish-text").innerText = segments[currentSegment].spanish;
+        document.getElementById("english-text").innerText = segments[currentSegment].english;
+        document.getElementById("segment-id").value = segments[currentSegment].id; // Update hidden segment ID
+    }
+
+    window.onload = function() {
+        displaySegment();
+
+    }
+
+    document.getElementById("next-segment").addEventListener("click", function() {
+        // Move to the next segment if available
+        if (currentSegment < segments.length - 1) {
+            currentSegment++; // Increment the current segment index
+            displaySegment(); // Update the page with the new segment
+        } else {
+            alert("No more segments.");
+        }
+    });
 
     englishText.addEventListener('mouseup', () => {
         const selection = window.getSelection();
@@ -38,4 +64,5 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please select text before submitting.');
         }
     });
+
 });
