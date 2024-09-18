@@ -9,15 +9,15 @@
     <title>App Name</title>
   </head>
   <body>
-    {% include 'partials/_header.html' %}
     <div class="main-content">
       <div class="text-center py-10">
         <h1>Translation Evaluation</h1>
         <div id="translation-segment">
-            <p><strong>Spanish:</strong> Aquí está el texto en español.</p>
-            <p><strong>English:</strong> <span id="english-text">Here is the English text.</span></p>
+          <p><strong>Spanish:</strong> <span id="spanish-text">Loading...</span></p>
+          <p><strong>English:</strong> <span id="english-text">Loading...</span></p>
         </div>
         <form id="evaluation-form">
+            <input type="hidden" id="segment-id" name="segment-id" value="">
             <label for="error-type">Error Type:</label>
             <select id="error-type" name="error-type" disabled>
                 <option value="major">Major</option>
@@ -29,6 +29,7 @@
             <textarea id="other-comments" name="other-comments"></textarea>
             <button type="submit">Submit</button>
         </form>
+        <button id="next-segment">Next Segment</button>
       </div>
     </div>
     <script src="/static/js/home.js"></script>
