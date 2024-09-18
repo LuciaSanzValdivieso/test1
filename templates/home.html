@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="icon" href="https://storage.googleapis.com/lazy-icons/not-found-placeholder.webp" type="image/x-icon">
+    <title>App Name</title>
+  </head>
+  <body>
+    {% include 'partials/_header.html' %}
+    <div class="main-content">
+      <div class="text-center py-10">
+        <h1>Translation Evaluation</h1>
+        <div id="translation-segment">
+            <p><strong>Spanish:</strong> Aquí está el texto en español.</p>
+            <p><strong>English:</strong> <span id="english-text">Here is the English text.</span></p>
+        </div>
+        <form id="evaluation-form">
+            <label for="error-type">Error Type:</label>
+            <select id="error-type" name="error-type" disabled>
+                <option value="major">Major</option>
+                <option value="minor">Minor</option>
+            </select>
+            <label for="correct-translation">Equivalencia correcta:</label>
+            <textarea id="correct-translation" name="correct-translation" disabled></textarea>
+            <label for="other-comments">Otros comentarios:</label>
+            <textarea id="other-comments" name="other-comments"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="/static/js/home.js"></script>
+  </body>
+</html>
